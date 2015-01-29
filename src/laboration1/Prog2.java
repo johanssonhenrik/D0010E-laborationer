@@ -12,10 +12,11 @@ public class Prog2 {
 		
 		for(int i=0;i<args.length; i+=2){
 			int argInArray = Integer.parseInt(args[i]);
+			int stepsInArray = Integer.parseInt(args[i+1]);
 			System.out.println();
-			System.out.println("> Prog2 (a0="+argInArray+" steps="+Integer.parseInt(args[i+1])+")");
+			System.out.println("> Prog2 (a0="+argInArray+" steps="+stepsInArray+")");
 			
-			System.out.print(iterate_f(argInArray,Integer.parseInt(args[i+1])));
+			System.out.print(iterate_f(argInArray,stepsInArray));
 		}
 	}
 	

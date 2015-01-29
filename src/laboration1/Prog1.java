@@ -28,9 +28,10 @@ public class Prog1 {
 	
 	public static void main(String[] args){
 		
-		int first = Integer.parseInt(args[5]);			//a0
+		int first = Integer.parseInt(args[0]);			//a0
 		
 		System.out.println("> Prog1 "+first+" ");
+		
 		System.out.print("f1="+f1(first)+" ");			//a1
 		System.out.print("f2="+f2(first)+" ");			//a2
 		System.out.print("f4="+f4(first)+" ");			//a4
@@ -39,7 +40,6 @@ public class Prog1 {
 		System.out.println("f32="+f32(first)+" ");		//a32
 		
 	}
-	
 	public static int f1(int a){
 		if(a==1){
 			return 1;

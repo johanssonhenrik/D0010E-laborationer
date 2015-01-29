@@ -17,14 +17,6 @@ public class Prog4 {
 		
 	}
 	
-	public static double rec_raise(double x, int k){						//Given i pdfen.
-		if(k==0){
-			return 1.0;
-		}else{
-			return x* rec_raise(x,k-1);
-		}
-	}
-	
 //-------------------------------Problem 8-------------------------------	Add rec_raise_eff
 	static int rec_raise_eff(int a, int k){
 		

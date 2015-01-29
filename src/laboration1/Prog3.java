@@ -16,7 +16,7 @@ public class Prog3 {
 		for(int i=0;i<args.length; i+=1){
 			int argInArray = Integer.parseInt(args[i]);
 			System.out.println("Ite: "+iter_life_length(argInArray));
-			System.out.println("Rek: The life length of "+argInArray+" is "+rec_life_length(argInArray,0));
+			System.out.println("Rek: The life length of "+argInArray+" is "+rec_life_length(argInArray));
 			System.out.println("");
 		}
 	}
@@ -43,13 +43,14 @@ public class Prog3 {
 	}
 	
 //-------------------------------Problem 6-------------------------------	//life length of numbers 1..15. And print both iter and rec.
-	static int rec_life_length(int a,int lifeLength){
+	static int rec_life_length(int a){
 		if(a == 1)
-			return lifeLength;
+			//return lifeLength;
+			return 0;
 		else{
-			lifeLength++;
-			int first = f1(a);
-			return rec_life_length(first,lifeLength);
+			//lifeLength++;
+			//int first = f1(a);
+			return rec_life_length(f1(a))+1;
 		}
 	}
 }
