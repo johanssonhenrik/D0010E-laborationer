@@ -1,4 +1,4 @@
-package laboration1;
+package lab1;
 
 public class Prog1 {
 
