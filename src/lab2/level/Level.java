@@ -1,15 +1,12 @@
 package lab2.level;
-
 import java.util.ArrayList;
 import java.util.Observable;
 
 public class Level extends Observable{
-	
-	Room playerLocation;			//Of the type room because I need x & y-coord in GUI.
-	ArrayList<Room> roomInLevel = new ArrayList<Room>();
+	Room playerLocation;						// Dynamisk variabel av typen Room. Används för att se vilket rum spelaren är i.					
+	ArrayList<Room> roomInLevel = new ArrayList<Room>();	//Lista med alla rum
 	
 	public boolean place(Room r, int x, int y){
-		
 		for (int i = 0; i < roomInLevel.size(); i++){
 			int xStart = roomInLevel.get(i).x;
 			int xEnd = xStart + roomInLevel.get(i).dx;
@@ -20,7 +17,6 @@ public class Level extends Observable{
 				return false;
 			}
 		}
-		
 		r.x = x;
 		r.y = y;
 		roomInLevel.add(r);
@@ -29,28 +25,28 @@ public class Level extends Observable{
 	public void firstLocation(Room r){		//Run only once on driver setup.
 			this.playerLocation = r;
 	}
-	public void goNorth(){
+	void goNorth(){
 		if(playerLocation.north != null){
-			playerLocation = playerLocation.north;		//playerLocation in level
+			playerLocation = playerLocation.north;		//playerLocation in level		//playerLocation.north = det andra objektet som ligger ovanför
 			setChanged();
 			notifyObservers();
 		}
 	}
-	public void goEast(){
+	void goEast(){
 		if(playerLocation.east != null){
 			playerLocation = playerLocation.east;
 			setChanged();
 			notifyObservers();
 		}
 	}
-	public void goSouth(){
+	void goSouth(){
 		if(playerLocation.south != null){
 			playerLocation = playerLocation.south;
 			setChanged();
 			notifyObservers();
 		}
 	}
-	public void goWest(){
+	void goWest(){
 		if(playerLocation.west != null){
 			playerLocation = playerLocation.west;
 			setChanged();

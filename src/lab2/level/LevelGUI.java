@@ -33,11 +33,11 @@ public class LevelGUI implements Observer{
 		frame.pack();
 		frame.setLocation(10,200);
 		frame.setVisible(true);
-		lv.addObserver(this);			//Needed in order to be able to observe
+		lv.addObserver(this);					//Needed in order to be able to observe
 	}
 	
 	public void update(Observable arg0, Object arg1){
-		d.repaint();					//Repaint Display
+		d.repaint();							//Repaint Display
 	}
 	
 	private class Display extends JPanel{
@@ -86,16 +86,18 @@ public class LevelGUI implements Observer{
 			g.setColor(Color.black);
 			g.fillOval(lv.playerLocation.x+30, lv.playerLocation.y+30, 40, 40);
 		}
-		public void paintComponent(Graphics g){
-			
-			super.paintComponent(g);
-			
+		private void paintRoom(Graphics g){
 			for(int i=0; i<lv.roomInLevel.size(); i++ ){
 				g.setColor(lv.roomInLevel.get(i).color);
 				g.fillRect(lv.roomInLevel.get(i).x , lv.roomInLevel.get(i).y, lv.roomInLevel.get(i).dx, lv.roomInLevel.get(i).dy);
 				g.setColor(Color.black);
 				g.drawRect(lv.roomInLevel.get(i).x , lv.roomInLevel.get(i).y, lv.roomInLevel.get(i).dx, lv.roomInLevel.get(i).dy);
 			}
+		}
+		public void paintComponent(Graphics g){
+			
+			super.paintComponent(g);
+			paintRoom(g);
 			paintCorridor(g);
 			paintPlayer(g);
 		}
@@ -103,58 +105,27 @@ public class LevelGUI implements Observer{
 	 	private class Listener implements KeyListener{
 
 	 		public void keyPressed(KeyEvent arg0){
-	 			if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
-	 				lv.goEast();
-	 	            System.out.println("Right key pressed");
-	 	        }
-	 	        if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
-	 	        	lv.goWest();
-	 	            System.out.println("Left key pressed");
-	 	        }
-	 	        if (arg0.getKeyCode() == KeyEvent.VK_UP) {
-	 	        	lv.goNorth();
-	 	            System.out.println("Up key pressed");
-	 	        }
-	 	       	if (arg0.getKeyCode() == KeyEvent.VK_DOWN) {
-	 	       		lv.goSouth();
-	 	            System.out.println("Down key pressed");
-	 	        }	
 	 		}
 	 		public void keyReleased(KeyEvent arg0){
-	 			if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
-	 				lv.goEast();
-	 	            System.out.println("Right key pressed");
-	 	        }
-	 	        if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
-	 	        	lv.goWest();
-	 	            System.out.println("Left key pressed");
-	 	        }
-	 	        if (arg0.getKeyCode() == KeyEvent.VK_UP) {
-	 	        	lv.goNorth();
-	 	            System.out.println("Up key pressed");
-	 	        }
-	 	       	if (arg0.getKeyCode() == KeyEvent.VK_DOWN) {
-	 	       		lv.goSouth();
-	 	            System.out.println("Down key pressed");
-	 	        }
 	 		}
 	 		public void keyTyped(KeyEvent event){
-	 			if (event.getKeyCode() == KeyEvent.VK_RIGHT) {
+	 			
+	 			switch(event.getKeyChar()){
+	 			case 'd': 
 	 				lv.goEast();
-	 	            System.out.println("Right key pressed");
-	 	        }
-	 	        if (event.getKeyCode() == KeyEvent.VK_LEFT) {
-	 	        	lv.goWest();
-	 	            System.out.println("Left key pressed");
-	 	        }
-	 	        if (event.getKeyCode() == KeyEvent.VK_UP) {
-	 	        	lv.goNorth();
-	 	            System.out.println("Up key pressed");
-	 	        }
-	 	       	if (event.getKeyCode() == KeyEvent.VK_DOWN) {
-	 	       	lv.goSouth();
-	 	            System.out.println("Down key pressed");
-	 	        }
+	 				break;
+	 			case 'w':
+	 				lv.goNorth();
+	 				break;
+	 			case 's':
+	 				lv.goSouth();
+	 				break;
+				case 'a':
+					lv.goWest();
+					break;
+				default:
+					break;
+				}
 	 		}
 	 	}
 	}
