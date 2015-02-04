@@ -54,6 +54,7 @@ public class Driver{
 		Room r2 = new Room(100, 100, Color.red);	//North east
 		Room r3 = new Room(100, 100, Color.yellow);	//South west
 		Room r4 = new Room(100, 100, Color.cyan);	//South east
+		Room r5 = new Room(80, 100, Color.cyan);	//South east
 		
 		r1.connectEastTo(r2);
 		r1.connectSouthTo(r3);
@@ -72,6 +73,7 @@ public class Driver{
 		lev1.place(r2, 250, 100);
 		lev1.place(r3, 100, 250);
 		lev1.place(r4, 250, 250);
+		lev1.place(r5, 260, 300);
 		LevelGUI levGUI1 = new LevelGUI(lev1, "Level 1");
 		
 		lev1.firstLocation(r1);								//Initial placement of the player.
