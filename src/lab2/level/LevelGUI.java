@@ -33,10 +33,11 @@ public class LevelGUI implements Observer{
 		frame.pack();
 		frame.setLocation(10,200);
 		frame.setVisible(true);
+		lv.addObserver(this);			//Needed in order to be able to observe
 	}
 	
 	public void update(Observable arg0, Object arg1){
-		
+		d.repaint();					//Repaint Display
 	}
 	
 	private class Display extends JPanel{
@@ -84,20 +85,6 @@ public class LevelGUI implements Observer{
 		private void paintPlayer(Graphics g){
 			g.setColor(Color.black);
 			g.fillOval(lv.playerLocation.x+30, lv.playerLocation.y+30, 40, 40);
-//			g.setColor(Color.yellow);
-//			g.fillOval(lv.firstLocation.x+32, lv.firstLocation.y+32, 36, 36);
-//			g.setColor(Color.blue);
-//			g.fillOval(lv.firstLocation.x+34, lv.firstLocation.y+34, 32, 32);
-//			g.setColor(Color.red);
-//			g.fillOval(lv.firstLocation.x+36, lv.firstLocation.y+36, 28, 28);
-//			g.setColor(Color.orange);
-//			g.fillOval(lv.firstLocation.x+38, lv.firstLocation.y+38, 24, 24);
-//			g.setColor(Color.pink);
-//			g.fillOval(lv.firstLocation.x+40, lv.firstLocation.y+40, 20, 20);
-//			g.setColor(Color.magenta);
-//			g.fillOval(lv.firstLocation.x+42, lv.firstLocation.y+42, 16, 16);
-//			g.setColor(Color.cyan);
-//			g.fillOval(lv.firstLocation.x+44, lv.firstLocation.y+44, 12, 12);
 		}
 		public void paintComponent(Graphics g){
 			
@@ -117,43 +104,55 @@ public class LevelGUI implements Observer{
 
 	 		public void keyPressed(KeyEvent arg0){
 	 			if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
+	 				lv.goEast();
 	 	            System.out.println("Right key pressed");
 	 	        }
 	 	        if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
+	 	        	lv.goWest();
 	 	            System.out.println("Left key pressed");
 	 	        }
 	 	        if (arg0.getKeyCode() == KeyEvent.VK_UP) {
+	 	        	lv.goNorth();
 	 	            System.out.println("Up key pressed");
 	 	        }
 	 	       	if (arg0.getKeyCode() == KeyEvent.VK_DOWN) {
+	 	       		lv.goSouth();
 	 	            System.out.println("Down key pressed");
 	 	        }	
 	 		}
 	 		public void keyReleased(KeyEvent arg0){
 	 			if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
+	 				lv.goEast();
 	 	            System.out.println("Right key pressed");
 	 	        }
 	 	        if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
+	 	        	lv.goWest();
 	 	            System.out.println("Left key pressed");
 	 	        }
 	 	        if (arg0.getKeyCode() == KeyEvent.VK_UP) {
+	 	        	lv.goNorth();
 	 	            System.out.println("Up key pressed");
 	 	        }
 	 	       	if (arg0.getKeyCode() == KeyEvent.VK_DOWN) {
+	 	       		lv.goSouth();
 	 	            System.out.println("Down key pressed");
 	 	        }
 	 		}
 	 		public void keyTyped(KeyEvent event){
 	 			if (event.getKeyCode() == KeyEvent.VK_RIGHT) {
+	 				lv.goEast();
 	 	            System.out.println("Right key pressed");
 	 	        }
 	 	        if (event.getKeyCode() == KeyEvent.VK_LEFT) {
+	 	        	lv.goWest();
 	 	            System.out.println("Left key pressed");
 	 	        }
 	 	        if (event.getKeyCode() == KeyEvent.VK_UP) {
+	 	        	lv.goNorth();
 	 	            System.out.println("Up key pressed");
 	 	        }
 	 	       	if (event.getKeyCode() == KeyEvent.VK_DOWN) {
+	 	       	lv.goSouth();
 	 	            System.out.println("Down key pressed");
 	 	        }
 	 		}
